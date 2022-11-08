@@ -19,4 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function(){
+    Route::get('route-cache', function(){
+        \Artisan::call('route:cache');
+        echo 'Run Success!';
+    });
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('/package', App\Http\Controllers\PackageController::class);
+});
