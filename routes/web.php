@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+Route::get('/tentang-kami', [App\Http\Controllers\HomeController::class, 'aboutUs'])->name('aboutUs');
+Route::get('/kontak', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
 
 Auth::routes();
 
@@ -24,6 +24,6 @@ Route::middleware(['auth'])->group(function(){
         \Artisan::call('route:cache');
         echo 'Run Success!';
     });
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
     Route::resource('/package', App\Http\Controllers\PackageController::class);
 });
