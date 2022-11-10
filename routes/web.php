@@ -19,11 +19,22 @@ Route::get('/kontak', [App\Http\Controllers\HomeController::class, 'contact'])->
 
 Auth::routes();
 
+Route::get('route-cache', function(){
+    \Artisan::call('route:cache');
+    echo 'Run Success!';
+});
+
+Route::get('key-generate', function(){
+    \Artisan::call('key:generate');
+    echo 'Run Success!';
+});
+
+Route::get('db-migrate', function(){
+    \Artisan::call('migrate');
+    echo 'Run Success!';
+});
+
 Route::middleware(['auth'])->group(function(){
-    Route::get('route-cache', function(){
-        \Artisan::call('route:cache');
-        echo 'Run Success!';
-    });
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
     Route::resource('/package', App\Http\Controllers\PackageController::class);
 });
