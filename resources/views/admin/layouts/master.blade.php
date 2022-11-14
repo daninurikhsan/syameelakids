@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>{{ $title }} - Admin Kedai Faba</title>
+  <title>{{ $title }} - {{ env('BUSINESS_NAME') }}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -45,7 +45,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">Kedai Faba</span>
+        <span class="d-none d-lg-block">{{ env('BUSINESS_NAME') }}</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -115,12 +115,62 @@
             <span>Dashboard</span>
             </a>
         </li>
+        @php 
+          $currentRoute = Route::currentRouteName();
+        @endphp
 
         <li class="nav-item">
-            <a class="nav-link {{ (request()->is('package')) ? '' : 'collapsed' }}" href="{{ route('package.index') }}">
-            <i class="bi bi-window"></i>
-            <span>Paket</span>
-            </a>
+        @if($currentRoute == 'program.index' or $currentRoute == 'program.create')
+          <a class="nav-link " data-bs-target="#components-program" data-bs-toggle="collapse" href="#" aria-expanded="true">
+        @else
+          <a class="nav-link collapsed" data-bs-target="#components-program" data-bs-toggle="collapse" href="#" aria-expanded="false">
+        @endif
+            <i class="bi bi-window"></i><span>Program</span><i class="bi bi-chevron-down ms-auto"></i>
+          </a>
+          @if($currentRoute == 'program.index' or $currentRoute == 'program.create')
+          <ul id="components-program" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+          @else
+          <ul id="components-program" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          @endif
+            <li>
+              <a href="{{ route('program.index') }}" class="nav-link {{ $currentRoute == 'program.index' ? '' : 'collapsed' }}">
+                <i class="bi bi-circle"></i><span>Lihat Semua</span>
+              </a>
+            </li>
+            <li>
+              <a href="{{ route('program.create') }}" class="nav-link {{ $currentRoute == 'program.create' ? '' : 'collapsed' }}">
+                <i class="bi bi-circle"></i><span>Tambah</span>
+              </a>
+            </li>
+      
+          </ul>
+        </li>
+
+        <li class="nav-item">
+        @if($currentRoute == 'teacher.index' or $currentRoute == 'teacher.create')
+          <a class="nav-link " data-bs-target="#components-teacher" data-bs-toggle="collapse" href="#" aria-expanded="true">
+        @else
+          <a class="nav-link collapsed" data-bs-target="#components-teacher" data-bs-toggle="collapse" href="#" aria-expanded="false">
+        @endif
+            <i class="bi bi-person"></i><span>Guru</span><i class="bi bi-chevron-down ms-auto"></i>
+          </a>
+          @if($currentRoute == 'teacher.index' or $currentRoute == 'teacher.create')
+          <ul id="components-teacher" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+          @else
+          <ul id="components-teacher" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          @endif
+            <li>
+              <a href="{{ route('teacher.index') }}" class="nav-link {{ $currentRoute == 'teacher.index' ? '' : 'collapsed' }}">
+                <i class="bi bi-circle"></i><span>Lihat Semua</span>
+              </a>
+            </li>
+            <li>
+              <a href="{{ route('teacher.create') }}" class="nav-link {{ $currentRoute == 'teacher.create' ? '' : 'collapsed' }}">
+                <i class="bi bi-circle"></i><span>Tambah</span>
+              </a>
+            </li>
+      
+          </ul>
         </li>
         
         <!-- End Dashboard -->

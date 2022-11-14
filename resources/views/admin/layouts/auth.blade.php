@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>{{ $title }} - Admin Kedai Faba</title>
+  <title>{{ $title }} - {{ env('BUSINESS_NAME') }}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -51,7 +51,7 @@
 
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <span class="d-none d-lg-block">Kedai Faba</span>
+                  <span class="d-none d-lg-block">{{ env('BUSINESS_NAME') }}</span>
                 </a>
               </div><!-- End Logo -->
 
@@ -73,7 +73,7 @@
                     <div class="col-12">
                       <label for="email" class="form-label">Email</label>
                       <div class="input-group">
-                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" required>
+                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" value="{{ old('email') }}" required>
                         @error('email')
                           <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

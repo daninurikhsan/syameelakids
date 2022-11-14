@@ -36,5 +36,6 @@ Route::get('db-migrate', function(){
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
-    Route::resource('/package', App\Http\Controllers\PackageController::class);
+    Route::resource('/program', App\Http\Controllers\ProgramController::class);
+    Route::resource('/teacher', App\Http\Controllers\TeacherController::class);
 });
