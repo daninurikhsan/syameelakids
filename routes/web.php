@@ -38,4 +38,5 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
     Route::resource('/program', App\Http\Controllers\ProgramController::class);
     Route::resource('/teacher', App\Http\Controllers\TeacherController::class);
+    Route::resource('/testimonial', App\Http\Controllers\TestimonialController::class);
 });

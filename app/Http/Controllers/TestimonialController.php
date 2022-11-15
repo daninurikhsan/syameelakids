@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Teacher;
+use App\Models\Testimonial;
 use DB;
 
-class TeacherController extends Controller
+class TestimonialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +15,12 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        $title = 'Daftar Guru';
-        $teachers = Teacher::paginate(10);
+        $title = 'Testimoni';
+        $testimonials = Testimonial::paginate(10);
 
-        return view('admin.teacher.index', [
+        return view('admin.testimonial.index',[
             'title' => $title,
-            'teachers' => $teachers,
+            'testimonials' => $testimonials,
         ]);
     }
 
@@ -31,10 +31,10 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        $title = 'Tambah Guru';
+        $title = 'Tambah Testimoni';
 
-        return view('admin.teacher.create', [
-            'title' => $title,
+        return view('admin.testimonial.create',[
+            'title' => $title
         ]);
     }
 
@@ -48,46 +48,45 @@ class TeacherController extends Controller
     {
         $rules = [
             'name' => 'required',
+            'child_name' => 'required',
             'photo' => 'required|mimes:jpg,png,jpeg',
-            'role' => 'required',
+            'message' => 'required',
         ];
 
         $messages = [
-            'name.required' => 'Nama program wajib diisi.',
+            'name.required' => 'Nama orang tua wajib diisi.',
+            'child_name.required' => 'Nama anak wajib diisi.',
             'photo.required' => 'Foto wajib diisi.',
-            'role.required' => 'Role wajib diisi.',   
+            'message.required' => 'Pesan wajib diisi.', 
         ];
 
         $this->validate($request, $rules, $messages);
 
         DB::beginTransaction();
         try {
-            $teacher = Teacher::create([
+            $testimonial = Testimonial::create([
                 'name' => $request->name,
-                'role' => $request->role,
+                'child_name' => $request->child_name,
+                'message' => $request->message,
             ]);
-
-
+    
             if($request->hasFile('photo')){
                 $file = $request->file('photo');
-                $fileName = 'teachers/' . time() . '_' .$teacher->name . '.' . $file->getClientOriginalExtension();
+                $fileName = 'testimonials/' . time() . '_' .$testimonial->name . '.' . $file->getClientOriginalExtension();
                 $file->storeAs('public/' , $fileName);
                 // dd($file);
-                $teacher->update([
+                $testimonial->update([
                     'photo' => $fileName
                 ]);
             }
-            
             DB::commit();
-
-            return redirect()->back()->with('success', 'Data guru telah berhasil ditambahkan.');
+            return redirect()->back()->with('success', 'Data testimoni berhasil ditambahkan!');
             
         } catch (\Throwable $th) {
             DB::rollback();
-
-            return redirect()->back()->with('error', 'Data guru gagal ditambahkan. Silahkan hubungi developer untuk segera dilakukan perbaikan. ' . $th->getMessage());
+            return redirect()->back()->with('error', 'Data testimoni gagal ditambahkan! Silahkan coba lagi atau hubungi developer untuk perbaikan!' . $th->getMessage());
+            //throw $th;
         }
-
     }
 
     /**
@@ -107,13 +106,13 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Teacher $teacher)
+    public function edit(Testimonial $testimonial)
     {
-        $title = 'Edit Guru';
+        $title = 'Edit Testimonial';
 
-        return view('admin.teacher.edit', [
+        return view('admin.testimonial.edit', [
             'title' => $title,
-            'teacher' => $teacher,
+            'testimonial' => $testimonial,
         ]);
     }
 
@@ -124,48 +123,48 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Teacher $teacher)
+    public function update(Request $request, Testimonial $testimonial)
     {
         $rules = [
             'name' => 'required',
+            'child_name' => 'required',
             'photo' => 'mimes:jpg,png,jpeg',
-            'role' => 'required',
+            'message' => 'required',
         ];
 
         $messages = [
-            'name.required' => 'Nama guru wajib diisi.',
+            'name.required' => 'Nama orang tua wajib diisi.',
+            'child_name.required' => 'Nama anak wajib diisi.',
             'photo.required' => 'Foto wajib diisi.',
-            'role.required' => 'Role wajib diisi.',   
+            'message.required' => 'Pesan wajib diisi.', 
         ];
 
         $this->validate($request, $rules, $messages);
 
         DB::beginTransaction();
         try {
-            $teacher->update([
+            $testimonial->update([
                 'name' => $request->name,
-                'role' => $request->role,
+                'child_name' => $request->child_name,
+                'message' => $request->message,
             ]);
-
-
+    
             if($request->hasFile('photo')){
                 $file = $request->file('photo');
-                $fileName = 'teachers/' . time() . '_' .$teacher->name . '.' . $file->getClientOriginalExtension();
+                $fileName = 'testimonials/' . time() . '_' .$testimonial->name . '.' . $file->getClientOriginalExtension();
                 $file->storeAs('public/' , $fileName);
                 // dd($file);
-                $teacher->update([
+                $testimonial->update([
                     'photo' => $fileName
                 ]);
             }
-            
             DB::commit();
-
-            return redirect()->back()->with('success', 'Data guru telah berhasil diperbarui.');
+            return redirect()->back()->with('success', 'Data testimoni berhasil diperbarui!');
             
         } catch (\Throwable $th) {
             DB::rollback();
-
-            return redirect()->back()->with('error', 'Data guru gagal diperbarui. Silahkan hubungi developer untuk segera dilakukan perbaikan. ' . $th->getMessage());
+            return redirect()->back()->with('error', 'Data testimoni gagal diperbarui! Silahkan coba lagi atau hubungi developer untuk perbaikan!' . $th->getMessage());
+            //throw $th;
         }
     }
 
@@ -175,9 +174,9 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Teacher $teacher)
+    public function destroy(Testimonial $testimonial)
     {
-        $teacher->delete();
-        return redirect()->back()->with('success', 'Data guru telah berhasil dihapus.');
+        $testimonial->delete();
+        return redirect()->back()->with('success', 'Data testimoni berhasil dihapus!');
     }
 }

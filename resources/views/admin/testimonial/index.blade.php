@@ -16,7 +16,7 @@
         </nav>
     </div>
     <div class="col-6">
-        <a href="{{ route('admin.testimonial.create') }}" class="btn btn-sm btn-primary float-end"><i class="bi bi-plus"></i> Tambah Testimoni</a>
+        <a href="{{ route('testimonial.create') }}" class="btn btn-sm btn-primary float-end"><i class="bi bi-plus"></i> Tambah Testimoni</a>
     </div>
 </div>
 @endsection
@@ -34,7 +34,7 @@
                     <th class="text-center">No</th>
                     <th class="text-center">Foto</th>
                     <th class="text-center">Nama</th>
-                    <th class="text-center">Role</th>
+                    <th class="text-center">Pesan</th>
                     <th class="text-center">Action</th>
                     </tr>
                 </thead>
@@ -42,15 +42,18 @@
                     @forelse($testimonials as $testimonial)
                         <tr>
                             <td class="text-center">{{ $loop->iteration }}</td>
-                            <td class="text-center"><img src="/storage/{{ $testimonial->avatar_url }}" width="100px"></td>
-                            <td class="text-center">{{ $testimonial->name }}</td>
-                            <td class="text-center">{{ $testimonial->role }}</td>
+                        <td class="text-center"><img src="{{ asset('storage/' . $testimonial->photo) }}" width="100px"></td>
+                            <td class="text-center">{{ $testimonial->name }} <br> <small>Orang Tua dari {{ $testimonial->child_name }}</small> </td>
+                            <td class="text-center">{{ $testimonial->message }}</td>
                             <td class="text-center">
-                                <a href="{{ route('admin.testimonial.edit', $testimonial->id) }}" class="btn btn-sm btn-warning pd-2"><i class="bi bi-pen me-1"></i> Edit</a>
-                                <form action="{{ route('admin.testimonial.destroy', $testimonial->id) }}" method="post" onSubmit="return alert('Apakah anda yakin ingin menghapus testimoni dari {{ $testimonial->name }}?'); return false;">
-                                    @csrf 
+                                <a href="{{ route('testimonial.edit', $testimonial->id) }}" class="btn btn-sm btn-warning pd-2"><i class="bi bi-pen me-1"></i> Edit</a>
+
+                                <a href="{{ route('testimonial.destroy', $testimonial->id) }}" class="btn btn-sm btn-danger pd-2" onclick="if(confirm('Apakah anda yakin ingin menghapus data ini?')){ event.preventDefault(); document.getElementById('form').submit(); }else{ return false; }" >
+                                    <i class="bi bi-trash me-1"></i> Hapus
+                                </a>
+                                <form id="form" onsubmit="return confirm('Apakah anda yakin ingin menghapus data ini?')" action="{{ route('testimonial.destroy', $testimonial->id) }}" method="POST" class="d-none">
+                                    @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger pt-2"><i class="bi bi-trash me-1"></i> Hapus</button>
                                 </form>
                             </td>
                         </tr>

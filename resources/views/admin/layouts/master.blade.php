@@ -172,6 +172,33 @@
       
           </ul>
         </li>
+
+        <li class="nav-item">
+        @if($currentRoute == 'testimonial.index' or $currentRoute == 'testimonial.create')
+          <a class="nav-link " data-bs-target="#components-testimonial" data-bs-toggle="collapse" href="#" aria-expanded="true">
+        @else
+          <a class="nav-link collapsed" data-bs-target="#components-testimonial" data-bs-toggle="collapse" href="#" aria-expanded="false">
+        @endif
+            <i class="bi bi-person"></i><span>Testimoni</span><i class="bi bi-chevron-down ms-auto"></i>
+          </a>
+          @if($currentRoute == 'testimonial.index' or $currentRoute == 'testimonial.create')
+          <ul id="components-testimonial" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+          @else
+          <ul id="components-testimonial" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          @endif
+            <li>
+              <a href="{{ route('testimonial.index') }}" class="nav-link {{ $currentRoute == 'testimonial.index' ? '' : 'collapsed' }}">
+                <i class="bi bi-circle"></i><span>Lihat Semua</span>
+              </a>
+            </li>
+            <li>
+              <a href="{{ route('testimonial.create') }}" class="nav-link {{ $currentRoute == 'testimonial.create' ? '' : 'collapsed' }}">
+                <i class="bi bi-circle"></i><span>Tambah</span>
+              </a>
+            </li>
+      
+          </ul>
+        </li>
         
         <!-- End Dashboard -->
 
