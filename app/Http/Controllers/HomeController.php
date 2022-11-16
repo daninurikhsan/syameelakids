@@ -25,9 +25,11 @@ class HomeController extends Controller
     public function aboutUs()
     {
         $title = 'Tentang Kami';
+        $programs = Program::all();
 
         return view('site.about-us',[
-            'title' => $title
+            'title' => $title,
+            'programs' => $programs,
         ]);
     }
 

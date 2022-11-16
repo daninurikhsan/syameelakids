@@ -25,7 +25,7 @@
                         <img src="/site/assets/images/icon/calistung-test.png" alt="Image" width="100px">
                     </div>
                     <div class="content">
-                        <h4>Program Belajar</h4>
+                        <h4>Calistung</h4>
                         <p class="desc">
                             Edipiscin elitsed eiusmod incididunt dolore magna suspendisse
                         </p>
@@ -38,7 +38,7 @@
                         <img src="/site/assets/images/icon/quran-test.png" alt="Image" width="100px">
                     </div>
                     <div class="content">
-                        <h4>Program Mengaji</h4>
+                        <h4>Mengaji</h4>
                         <p class="desc">
                             Edipiscin elitsed eiusmod incididunt dolore magna suspendisse
                         </p>
@@ -51,7 +51,7 @@
                         <img src="/site/assets/images/icon/primary-test.png" alt="Image" width="100px">
                     </div>
                     <div class="content">
-                        <h4>Update Perkembangan Buah Hati</h4>
+                        <h4>Mata Pelajaran SD</h4>
                         <p class="desc">
                             Edipiscin elitsed eiusmod incididunt dolore magna suspendisse
                         </p>

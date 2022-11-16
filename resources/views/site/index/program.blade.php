@@ -21,7 +21,7 @@
             </div>
             @foreach($programs as $program)
                 @if($program->is_package == 0)
-                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-5">
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-5 mb-5">
                         <div class="sc-discovery-2 wow fadeInUp animated" data-wow-delay="0.3ms" data-wow-duration="800ms">
                             <div class="box-feature">
                                 <img src="{{ asset('storage/'. $program->logo) }}" alt="Calistung" width="100px">

@@ -56,11 +56,11 @@
                             <td class="text-center">
                                 <a href="{{ route('program.edit', $program->id) }}" class="btn btn-sm btn-warning pd-2"><i class="bi bi-pen me-1"></i> Edit</a>
 
-                                <!-- <a href="{{ route('program.destroy', $program->id) }}" class="btn btn-sm btn-danger pd-2" onclick="event.preventDefault(); document.getElementById('form').submit();" > -->
-                                <a href="{{ route('program.destroy', $program->id) }}" class="btn btn-sm btn-danger pd-2" onclick="if(confirm('Apakah anda yakin ingin menghapus data ini?')){ event.preventDefault(); document.getElementById('form').submit(); }else{ return false; }" >
+                                <a href="#" class="btn btn-sm btn-danger pd-2" onclick="if(confirm('Apakah anda yakin ingin menghapus data ini?')){ event.preventDefault(); document.getElementById('form-{{ $program->id }}').submit(); }else{ return false; }" >
                                     <i class="bi bi-trash me-1"></i> Hapus
                                 </a>
-                                <form id="form" onsubmit="return confirm('Apakah anda yakin ingin menghapus data ini?')" action="{{ route('program.destroy', $program->id) }}" method="POST" class="d-none">
+                                
+                                <form id="form-{{ $program->id }}" action="{{ route('program.destroy', $program->id) }}" method="POST" class="d-none">
                                     @csrf
                                     @method('DELETE')
                                 </form>

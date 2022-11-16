@@ -265,8 +265,9 @@ class ProgramController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Program $program)
+    public function destroy($id)
     {
+        $program = Program::find($id);
         $program->delete();
         return redirect()->back()->with('success', 'Data program telah berhasil diperbarui.');
     }

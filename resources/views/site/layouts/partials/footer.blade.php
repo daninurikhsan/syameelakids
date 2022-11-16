@@ -8,7 +8,9 @@
                             <div class="logo-bottom" id="logo-footer">
                                 <a href="index.html"><img src="/site/assets/images/logo/bimbel.png" alt="kinco"></a>
                             </div>
-                            <p class="wrap f-mulish">Sit amet consectetur adipiscing elit sed do eiusmod teminci idunt ut labore et dolore magna</p>
+                            <p class="wrap f-mulish">
+                                Spesialis Bimbel Privat CALISTUNG & Mapel SD
+                            </p>
                             <div class="list-contact">
                                 <ul>
                                     <li class="fx"><span><i class="far fa-map-marker-alt"></i>{{ env('BUSINESS_ADDRESS') }}</span></li>
@@ -21,27 +23,25 @@
                         <div class="widget widget-link mt-5 ml-1 pl-1">
                             <h4 class="title-widget">Program Syameela Kids</h4>
                             <ul class="list-link">
-                                <li class="fx"><a href="program.html" class="wd-ctm f-mulish">Calistung 1 Jam</a></li>
-                                <li class="fx"><a href="program.html" class="wd-ctm f-mulish">Calistung 1,5 Jam</a></li>
-                                <li class="fx"><a href="program.html" class="wd-ctm f-mulish">Calistung & Mengaji</a></li>
-                                <li class="fx"><a href="program.html" class="wd-ctm f-mulish">Program Kelas 1-3 SD</a></li>
-                                <li class="fx"><a href="program.html" class="wd-ctm f-mulish">Program Kelas 4-6 SD</a></li>
-                                <li class="fx"><a href="program.html" class="wd-ctm f-mulish">Kelas Privat Mengaji</a></li>
+                                @foreach($programs as $program)
+                                    <li class="fx"><a href="#" class="wd-ctm f-mulish">{{ $program->name }}</a></li>
+
+                                @endforeach
                             </ul>
                         </div>
 
                         <div class="widget widget-business mt-5">
                             <div class="inner">
                                     <div class="op-time">
-                                        <h4 class="title-widget">opening hours</h4>
+                                        <h4 class="title-widget">jam tersedia</h4>
                                         <ul>
-                                            <li><span class="f-mulish">Sunday - Friday</span></li>
-                                            <li><span class="f-mulish">08 am - 05 pm</span></li>
+                                            <li><span class="f-mulish">Senin - Minggu</span></li>
+                                            <li><span class="f-mulish">08:00 - 22:00 WITA</span></li>
                                         </ul>
                                     </div>
                                     <div class="cls-time">
-                                        <p>Every Satarday and Govt Holiday</p>
-                                        <h4 class="title-widget">closed</h4>
+                                        <p>Jadwal kelas menyesuaikan dengan waktu ananda.</p>
+                                        <!-- <h4 class="title-widget"></h4> -->
                                     </div>
                             </div>
                         </div>

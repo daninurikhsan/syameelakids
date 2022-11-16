@@ -8,7 +8,7 @@
 
 @include('site.index.courses')
 
-@include('site.index.employees')
+<!-- @include('site.index.employees') -->
 
 @include('site.index.services')
 

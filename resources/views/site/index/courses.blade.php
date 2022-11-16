@@ -23,119 +23,53 @@
                 <div class="slider-courses">
                     <div class="themesflat-carousel clearfix" data-margin="30" data-item="3" data-item2="3" data-item3="2" data-item4="1" data-auto="false" data-nav="true" data-loop="true">
                         <div class="owl-carousel owl-theme none">
-                            <div data-dot="" class="item-courses wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1300ms">
-                                <div class="box-feature">
-                                    <img src="/site/assets/images/original/calistung1-test.jpg" alt="Image">
-                                </div>
-                                <div class="box-content">
-                                    <div class="box-wrap">
-                                        <h4 class="title"><a href="classe-details.html">Privat CALISTUNG 1</a></h4>
-                                        <p class="sub f-mulish">Paket Privat bulanan Calistung dengan 8 kali pertemuan <br><B>
-                                                                1 Jam: Rp 320.000/Bulan <br>
-                                                                1,5 Jam: RP 360.000/Bulan </B></p>
+                        @foreach($programs as $program)
+                            @if($program->is_package == 1)
+                                <div data-dot="" class="item-courses wow fadeIn animated" data-wow-delay="0.3ms"
+                                    data-wow-duration="1300ms">
+                                    <div class="box-feature">
+                                        <img src="{{ asset('storage/' . $program->bg_cover) }}" alt="Image">
                                     </div>
-                                    <ul>
-                                        <li><i class="far fa-clock clr-pri-5"></i>1-1,5 Jam</li>
-                                        <li><i class="far fa-book clr-pri-6"></i>8x Kelas</li>
-                                        <li><i class="fal fa-usd-circle clr-pri-3"></i>Mulai dari Rp 320.000</li>
-                                        <li><i class="far fa-clock clr-pri-8"></i>1 Bulan</li>
-                                    </ul>
-                                </div>
-                                
-                            </div>
-                            <div data-dot="" class="item-courses wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1300ms">
-                                <div class="box-feature">
-                                    <img src="/site/assets/images/original/calistung2-test.jpg" alt="Image">
-                                </div>
-                                <div class="box-content">
-                                    <div class="box-wrap">
-                                        <h4 class="title"><a href="classe-details.html">Privat CALISTUNG 2</a></h4>
-                                        <p class="sub f-mulish">Paket Privat bulanan Calistung dengan 12 kali pertemuan <br><B>
-                                            1 Jam: Rp 480.000/Bulan <br>
-                                            1,5 Jam: RP 540.000/Bulan </B></p>
+                                    <div class="box-content">
+                                        <div class="box-wrap">
+                                            <h4 class="title">
+                                                <a href="classe-details.html">
+                                                    {{ $program->name }}
+                                                </a>
+                                            </h4>
+                                            <p class="sub f-mulish">
+                                                {{ $program->short_description }}. <br>
+                                                <!-- <B> -->
+                                                <!-- 1 Jam: Rp 320.000/Bulan <br>
+                                                    1,5 Jam: RP 360.000/Bulan </B> -->
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <p style="font-size: 18px ;">
+                                                    <i class="far fa-book clr-pri-6 mr-2"></i>
+                                                    8x & 12x pertemuan
+                                                </p>
+                                            </div>
+                                            <div class="col-12">
+                                                <p style="font-size: 18px ;">
+                                                    <i class="far fa-usd-circle clr-pri-3"></i>
+                                                    @rupiah(min($program->sessions->pluck('price')->toArray())) - @rupiah(max($program->sessions->pluck('price')->toArray()))
+                                                </p>
+                                            </div>
+                                            <div class="col-12">
+                                                <p style="font-size: 18px ;">
+                                                    <i class="far fa-clock clr-pri-8 mr-2"></i>
+                                                    1 Bulan
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <ul>
-                                        <li><i class="far fa-clock clr-pri-5"></i>1-1,5 Jam</li>
-                                        <li><i class="far fa-book clr-pri-6"></i>12x Kelas</li>
-                                        <li><i class="fal fa-usd-circle clr-pri-3"></i>Mulai dari Rp. 480.000</li>
-                                        <li><i class="far fa-clock clr-pri-8"></i>1 Bulan</li>
-                                    </ul>
+
                                 </div>
-                            </div>
-                            <div data-dot="" class="item-courses wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1300ms">
-                                <div class="box-feature">
-                                    <img src="/site/assets/images/original/mapelsd1-test.jpg" alt="Image">
-                                </div>
-                                <div class="box-content">
-                                    <div class="box-wrap">
-                                        <h4 class="title"><a href="classe-details.html">Privat Mapel SD 1</a></h4>
-                                        <p class="sub f-mulish">Paket Privat bulanan Mapel SD dengan 8 kali pertemuan<br><B>
-                                            Kelas 1-3 SD: Rp 400.000/Bulan<br>
-                                            Kelas 4-6 SD: Rp 480.000/Bulan </B></p>
-                                    </div>
-                                    <ul>
-                                        <li><i class="far fa-user-graduate clr-pri-5"></i>1-6 SD</li>
-                                        <li><i class="far fa-book clr-pri-6"></i>8x Kelas</li>
-                                        <li><i class="fal fa-usd-circle clr-pri-3"></i>Mulai dari Rp 400.000</li>
-                                        <li><i class="far fa-clock clr-pri-8"></i>1 Bulan</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div data-dot="" class="item-courses wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1300ms">
-                                <div class="box-feature">
-                                    <img src="/site/assets/images/original/mapelsd2-test.jpg" alt="Image">
-                                </div>
-                                <div class="box-content">
-                                    <div class="box-wrap">
-                                        <h4 class="title"><a href="classe-details.html">Privat Mapel SD 2</a></h4>
-                                        <p class="sub f-mulish">Paket Privat bulanan Mapel SD dengan 12 kali pertemuan<br><B>
-                                            Kelas 1-3 SD: Rp 600.000/Bulan<br>
-                                            Kelas 4-6 SD: Rp 720.000/Bulan </B></p>
-                                    </div>
-                                    <ul>
-                                        <li><i class="far fa-user-graduate clr-pri-5"></i>1-6 SD</li>
-                                        <li><i class="far fa-book clr-pri-6"></i>12x Kelas</li>
-                                        <li><i class="fal fa-usd-circle clr-pri-3"></i>Mulai dari Rp 600.000</li>
-                                        <li><i class="far fa-clock clr-pri-8"></i>1 Bulan</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div data-dot="" class="item-courses wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1300ms">
-                                <div class="box-feature">
-                                    <img src="/site/assets/images/original/quran1-test.jpg" alt="Image">
-                                </div>
-                                <div class="box-content">
-                                    <div class="box-wrap">
-                                        <h4 class="title"><a href="classe-details.html">Privat MENGAJI 1</a></h4>
-                                        <p class="sub f-mulish">Paket Privat bulanan Mengaji Dewasa & Anak-anak dengan 8 kali pertemuan<br><B>
-                                            Rp 360.000/Bulan </B></p>
-                                    </div>
-                                    <ul>
-                                        <li><i class="far fa-user-graduate clr-pri-5"></i>Dewasa & Anak</li>
-                                        <li><i class="far fa-book clr-pri-6"></i>8x Kelas</li>
-                                        <li><i class="fal fa-usd-circle clr-pri-3"></i>Rp 360.000</li>
-                                        <li><i class="far fa-clock clr-pri-8"></i>1 Bulan</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div data-dot="" class="item-courses wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1300ms">
-                                <div class="box-feature">
-                                    <img src="/site/assets/images/original/quran2-test.jpg" alt="Image">
-                                </div>
-                                <div class="box-content">
-                                    <div class="box-wrap">
-                                        <h4 class="title"><a href="classe-details.html">Privat MENGAJI 2</a></h4>
-                                        <p class="sub f-mulish">Paket Privat bulanan Mengaji Dewasa & Anak-anak dengan 12 kali pertemuan<br><B>
-                                            Rp 540.000/Bulan </B></p>
-                                    </div>
-                                    <ul>
-                                        <li><i class="far fa-user-graduate clr-pri-5"></i>Dewasa & Anak</li>
-                                        <li><i class="far fa-book clr-pri-6"></i>12x Kelas</li>
-                                        <li><i class="fal fa-usd-circle clr-pri-3"></i>540.000</li>
-                                        <li><i class="far fa-clock clr-pri-8"></i>1 Bulan</li>
-                                    </ul>
-                                </div>
-                            </div>
+                            @endif
+                        @endforeach
+
                         </div>
                     </div>
                 </div>

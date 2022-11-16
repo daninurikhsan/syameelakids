@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="box-feature">
                                         <div class="image">
-                                            <img src="site/assets/images/original/slider1-test.jpg" alt="Image">
+                                            <img src="site/assets/images/original/slider1-test.jpg" alt="Image" loading="lazy">
                                         </div>
                                     </div>
                                 </div>

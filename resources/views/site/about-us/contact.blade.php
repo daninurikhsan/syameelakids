@@ -1,6 +1,6 @@
 <section class="tf-sc-contact">
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" style="margin-bottom: 120px">
             <div class="col-12">
                 <div class="sc-contact wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1200ms">
                     <div class="wrap">
