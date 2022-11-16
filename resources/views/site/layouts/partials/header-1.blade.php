@@ -49,14 +49,6 @@
                                     <a href="/tentang-kami">Tentang Kami</a>
                                 </li>
                                 
-                                <li class="menu-item-has-children">
-                                    <a>Program</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="program.html">Program</a></li>
-                                        <li><a href="program-details.html">Program detail</a></li>
-                                    </ul>
-                                </li>
-
                                 <li class="menu-item {{ Route::currentRouteName() == 'contact' ? 'current-menu-item' : '' }}">
                                     <a href="/kontak">Kontak</a>
                                 </li>
