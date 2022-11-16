@@ -50,6 +50,7 @@ class ProgramController extends Controller
     {
         $rules = [
             'name' => 'required',
+            'logo' => 'required|mimes:jpg,png,jpeg',
             'bg_cover' => 'required|mimes:jpg,png,jpeg',
             'short_description' => 'required',
             'description' => 'required',
@@ -59,6 +60,7 @@ class ProgramController extends Controller
         $messages = [
             'name.required' => 'Nama program wajib diisi.',
             'bg_cover.required' => 'Cover wajib diisi.',
+            'bg_cover.required' => 'Logo wajib diisi.',
             'short_description.required' => 'Deskripsi singkat wajib diisi.',
             'description.required' => 'Deskripsi lengkap wajib diisi.',
             'is_package.required' => 'Pilihan ini wajib diisi.',    
@@ -109,6 +111,16 @@ class ProgramController extends Controller
                 // dd($file);
                 $program->update([
                     'bg_cover' => $fileName
+                ]);
+            }
+
+            if($request->hasFile('logo')){
+                $file = $request->file('logo');
+                $fileName = 'programs/' . time() . '_' .$program->name . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('public/' , $fileName);
+                // dd($file);
+                $program->update([
+                    'logo' => $fileName
                 ]);
             }
             
@@ -162,6 +174,7 @@ class ProgramController extends Controller
         $rules = [
             'name' => 'required',
             'bg_cover' => 'mimes:jpg,png,jpeg',
+            'logo' => 'mimes:jpg,png,jpeg',
             'short_description' => 'required',
             'description' => 'required',
             'is_package' => 'required',
@@ -170,6 +183,7 @@ class ProgramController extends Controller
         $messages = [
             'name.required' => 'Nama program wajib diisi.',
             'bg_cover.required' => 'Cover wajib diisi.',
+            'logo.required' => 'Logo wajib diisi.',
             'short_description.required' => 'Deskripsi singkat wajib diisi.',
             'description.required' => 'Deskripsi lengkap wajib diisi.',
             'is_package.required' => 'Pilihan ini wajib diisi.',    
@@ -221,6 +235,16 @@ class ProgramController extends Controller
                 // dd($file);
                 $program->update([
                     'bg_cover' => $fileName
+                ]);
+            }
+
+            if($request->hasFile('logo')){
+                $file = $request->file('logo');
+                $fileName = 'programs/' . time() . '_' .$program->name . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('public/' , $fileName);
+                // dd($file);
+                $program->update([
+                    'logo' => $fileName
                 ]);
             }
             

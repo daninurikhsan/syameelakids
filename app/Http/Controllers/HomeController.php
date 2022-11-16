@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Program;
+use App\Models\Testimonial;
 
 class HomeController extends Controller
 {
@@ -13,7 +15,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('site.index');
+        $programs = Program::all();
+
+        return view('site.index', [
+            'programs' => $programs
+        ]);
     }
 
     public function aboutUs()

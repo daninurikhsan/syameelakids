@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('short_description');
             $table->text('description');
-            $table->text('bg_cover')->nullable();
+            $table->string('bg_cover')->nullable();
+            $table->string('logo')->nullable();
             $table->tinyInteger('is_package');
             $table->integer('price_per_session')->nullable();
             $table->timestamps();

@@ -49,6 +49,17 @@
                     </div>
                 </div>
 
+                <!-- Logo -->
+                <div class="row mb-3">
+                    <label for="logo" class="col-sm-2 col-form-label">Logo</label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control @error('logo') is-invalid @enderror" name="logo" id="logo" value="{{ old('logo') }}">
+                        @error('logo')
+                            <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+
                 <!-- Deskripsi Singkat -->
                 <div class="row mb-3">
                     <label for="short_description" class="col-sm-2 col-form-label">Deskripsi Singkat</label>
@@ -161,7 +172,7 @@
                         <div class="row mb-3">
                             <label for="price" class="col-sm-2 col-form-label">Harga Paket</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control @error('price.0') is-invalid @enderror" name="price[]" id="price" value="{{ old('price.0') }}">
+                                <input type="number" class="form-control @error('price.0') is-invalid @enderror" name="price[0]" id="price" value="{{ old('price.0') }}">
                                 <small><i>Wajib diisi untuk paket.</i></small>
                                 @error('price.0')
                                     <span class="invalid-feedback">{{ $message }}</span>
@@ -173,7 +184,7 @@
                         <div class="row mb-3">
                             <label for="total_session" class="col-sm-2 col-form-label">Jumlah Pertemuan</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control @error('total_session.0') is-invalid @enderror" name="total_session[]" id="total_session" value="{{ old('total_session.0') }}">
+                                <input type="number" class="form-control @error('total_session.0') is-invalid @enderror" name="total_session[0]" id="total_session" value="{{ old('total_session.0') }}">
                                 <small><i>Wajib diisi untuk paket.</i></small>
                                 @error('total_session.0')
                                     <span class="invalid-feedback">{{ $message }}</span>
@@ -185,7 +196,7 @@
                         <div class="row mb-3">
                             <label for="note" class="col-sm-2 col-form-label">Target/Kategori/Waktu/Keterangan</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control @error('note.0') is-invalid @enderror" name="note[]" id="note" value="{{ old('note.0') }}">
+                                <input type="text" class="form-control @error('note.0') is-invalid @enderror" name="note[0]" id="note" value="{{ old('note.0') }}">
                                 <small><i>Wajib diisi untuk paket. Misal, 1 Jam, 1.5 Jam, Dewasa dan Anak, Kelas 1-3 SD, Kelas 4-6 SD, dll.</i></small>
                                 @error('note.0')
                                     <span class="invalid-feedback">{{ $message }}</span>
@@ -213,7 +224,7 @@
 </div>
 
 <script>
-    let i = parseInt('{{ isset($totalError) ? $totalError : 1 }}');
+    let i = parseInt('{{ isset($totalError) ? $totalError : 0 }}');
     let categoryGroup = document.querySelector('#package-info');
     let btnAddCategory = document.getElementById('add-category');
 

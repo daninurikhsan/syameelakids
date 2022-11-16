@@ -19,66 +19,24 @@
                     <h2 class="title clr-pri-1">Spesialis Bimbel Privat CALISTUNG & MAPEL SD</h2>
                 </div>
             </div>
-
-            <div class="col-xl-3 col-lg-3 col-md-5 col-sm-5">
-                <div class="sc-discovery-2 wow fadeInUp animated" data-wow-delay="0.3ms" data-wow-duration="800ms">
-                    <div class="box-feature">
-                        <img src="/site/assets/images/icon/calistung-test.png" alt="Calistung" width="100px">
+            @foreach($programs as $program)
+                @if($program->is_package == 0)
+                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-5">
+                        <div class="sc-discovery-2 wow fadeInUp animated" data-wow-delay="0.3ms" data-wow-duration="800ms">
+                            <div class="box-feature">
+                                <img src="{{ asset('storage/'. $program->logo) }}" alt="Calistung" width="100px">
+                            </div>
+                            <div class="box-content">
+                                <h4 class="title"><a href="#">{{ $program->name }}</a></h4>
+                                <p class="wrap f-mulish">{{ $program->short_description }}</p>
+                                <a href="#" class="fl-btn st-13">
+                                    <span class="inner">Baca Lagi</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="box-content">
-                        <h4 class="title"><a href="classes.html">CALISTUNG</a></h4>
-                        <p class="wrap f-mulish">Sed ut perspiciatis unde omnis iste natu voluptatem accus antium dolorem</p>
-                        <a href="classes.html" class="fl-btn st-13">
-                            <span class="inner">Baca Lagi</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-3 col-md-5 col-sm-5">
-                <div class="sc-discovery-2 wow fadeInUp animated" data-wow-delay="0.3ms" data-wow-duration="1000ms">
-                    <div class="box-feature">
-                        <img src="/site/assets/images/icon/quran-test.png" alt="Calistung" width="100px">
-                    </div>
-                    <div class="box-content">
-                        <h4 class="title"><a href="program.html">MENGAJI</a></h4>
-                        <p class="wrap f-mulish">Sed ut perspiciatis unde omnis iste natu voluptatem accus antium dolorem</p>
-                        <a href="program.html" class="fl-btn st-13">
-                            <span class="inner">Baca Lagi</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-3 col-md-5 col-sm-5">
-                <div class="sc-discovery-2 wow fadeInUp animated" data-wow-delay="0.3ms" data-wow-duration="1200ms">
-                    <div class="box-feature">
-                        <img src="/site/assets/images/icon/bundle-test.png" alt="Calistung" width="100px">
-                    </div>
-                    <div class="box-content">
-                        <h5 class="title"><a href="teacher.html">CALISTUNG & MENGAJI</a></h5>
-                        <p class="wrap f-mulish">Sed ut perspiciatis unde omnis iste natu voluptatem accus antium dolorem</p>
-                        <a href="teacher.html" class="fl-btn st-13">
-                            <span class="inner">Baca Lagi</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-3 col-md-5 col-sm-5">
-                <div class="sc-discovery-2 wow fadeInUp animated" data-wow-delay="0.3ms" data-wow-duration="1400ms">
-                    <div class="box-feature">
-                        <img src="/site/assets/images/icon/primary-test.png" alt="Calistung" width="100px">
-                    </div>
-                    <div class="box-content">
-                        <h4 class="title"><a href="events.html">Mapel SD</a></h4>
-                        <p class="wrap f-mulish">Sed ut perspiciatis unde omnis iste natu voluptatem accus antium dolorem</p>
-                        <a href="events.html" class="fl-btn st-13">
-                            <span class="inner">Baca Lagi</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+                @endif
+            @endforeach
 
         </div>
     </div>
