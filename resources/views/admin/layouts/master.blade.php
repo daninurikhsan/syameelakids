@@ -179,7 +179,7 @@
         @else
           <a class="nav-link collapsed" data-bs-target="#components-testimonial" data-bs-toggle="collapse" href="#" aria-expanded="false">
         @endif
-            <i class="bi bi-person"></i><span>Testimoni</span><i class="bi bi-chevron-down ms-auto"></i>
+            <i class="bi bi-input-cursor"></i><span>Testimoni</span><i class="bi bi-chevron-down ms-auto"></i>
           </a>
           @if($currentRoute == 'testimonial.index' or $currentRoute == 'testimonial.create')
           <ul id="components-testimonial" class="nav-content collapse show" data-bs-parent="#sidebar-nav">

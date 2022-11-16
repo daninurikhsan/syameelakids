@@ -1,4 +1,4 @@
-<section class="tf-section tf-employee">
+<section class="tf-section tf-employee" style="padding: 15px;">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -23,37 +23,17 @@
                 <div class="slider-employee">
                     <div class="themesflat-carousel clearfix" data-margin="30" data-item="4" data-item2="3" data-item3="2" data-item4="1" data-auto="false">
                         <div class="owl-carousel owl-theme none dots-none">
-                            <div class="sc-employee wow fadeInUp animated" data-wow-delay="0.3ms" data-wow-duration="800ms">
-                                <div class="box-feature"><img src="/site/assets/images/icon/person-test.png" style="width: 180px;" alt="Image"></div>
-                                <div class="box-content st-1">
-                                    <h4 class="name"><a href="teacher-details.html" class="clr-pri-1">Patrick K. Carlson</a></h4>
-                                    <p class="sub f-mulish clr-pri-1">Guru Calistung</p>
-                                </div>
-                            </div>
 
-                            <div class="sc-employee wow fadeInUp animated" data-wow-delay="0.3ms" data-wow-duration="1000ms">
-                                <div class="box-feature"><img src="/site/assets/images/icon/person-test.png" style="width: 180px;" alt="Image"></div>
-                                <div class="box-content st-2">
-                                    <h4 class="name"><a href="teacher-details.html" class="clr-pri-1">Roderick M. Neal</a></h4>
-                                    <p class="sub f-mulish clr-pri-1">Guru Mengaji</p>
+                            @foreach($teachers as $teacher)
+                                <div class="sc-employee wow fadeInUp animated" data-wow-delay="0.3ms" data-wow-duration="800ms">
+                                    <div class="box-feature"><img src="{{ asset('storage/' . $teacher->photo) }}" style="width: 180px;" alt="Image"></div>
+                                    <div class="box-content st-1">
+                                        <h4 class="name"><a href="#" class="clr-pri-1">{{ $teacher->name }}</a></h4>
+                                        <p class="sub f-mulish clr-pri-1">{{ $teacher->role }}</p>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="sc-employee wow fadeInUp animated" data-wow-delay="0.3ms" data-wow-duration="1200ms">
-                                <div class="box-feature"><img src="/site/assets/images/icon/person-test.png" style="width: 180px;" alt="Image"></div>
-                                <div class="box-content st-3">
-                                    <h4 class="name"><a href="teacher-details.html" class="clr-pri-1">Frank T. Norman</a></h4>
-                                    <p class="sub f-mulish clr-pri-1">Guru Mapel SD</p>
-                                </div>
-                            </div>
-
-                            <div class="sc-employee wow fadeInUp animated" data-wow-delay="0.3ms" data-wow-duration="1400ms">
-                                <div class="box-feature"><img src="/site/assets/images/icon/person-test.png" style="width: 180px;" alt="Image"></div>
-                                <div class="box-content st-4">
-                                    <h4 class="name"><a href="teacher-details.html" class="clr-pri-1">Scott M. Fletcher</a></h4>
-                                    <p class="sub f-mulish clr-pri-1">Guru Mengaji</p>
-                                </div>
-                            </div>
+                            @endforeach
+                            
                             
                         </div>
                     </div><!--/.themesflat-carousel-->

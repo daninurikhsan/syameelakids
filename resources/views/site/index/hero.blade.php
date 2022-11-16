@@ -27,7 +27,7 @@
                                             <!-- <a href="contact/" class="fl-btn st-12">
                                                 <span class="inner">Kontak Kami</span>
                                             </a> -->
-                                            <a href="about.html" class="fl-btn st-1">
+                                            <a href="/tentang-kami" class="fl-btn st-1">
                                                 <span class="inner">Selengkapnya</span>
                                             </a>
                                         </div>

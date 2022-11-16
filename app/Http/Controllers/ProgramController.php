@@ -50,6 +50,7 @@ class ProgramController extends Controller
     {
         $rules = [
             'name' => 'required',
+            'slug' => 'required',
             'logo' => 'required|mimes:jpg,png,jpeg',
             'bg_cover' => 'required|mimes:jpg,png,jpeg',
             'short_description' => 'required',
@@ -59,6 +60,7 @@ class ProgramController extends Controller
 
         $messages = [
             'name.required' => 'Nama program wajib diisi.',
+            'slug.required' => 'Slug wajib diisi.',
             'bg_cover.required' => 'Cover wajib diisi.',
             'bg_cover.required' => 'Logo wajib diisi.',
             'short_description.required' => 'Deskripsi singkat wajib diisi.',
@@ -87,6 +89,7 @@ class ProgramController extends Controller
         try {
             $program = Program::create([
                 'name' => $request->name,
+                'slug' => $request->slug,
                 'short_description' => $request->short_description,
                 'description' => $request->description,
                 'is_package' => $request->is_package,
@@ -173,6 +176,7 @@ class ProgramController extends Controller
     {
         $rules = [
             'name' => 'required',
+            'slug' => 'required',
             'bg_cover' => 'mimes:jpg,png,jpeg',
             'logo' => 'mimes:jpg,png,jpeg',
             'short_description' => 'required',
@@ -182,6 +186,7 @@ class ProgramController extends Controller
 
         $messages = [
             'name.required' => 'Nama program wajib diisi.',
+            'slug.required' => 'Nama program wajib diisi.',
             'bg_cover.required' => 'Cover wajib diisi.',
             'logo.required' => 'Logo wajib diisi.',
             'short_description.required' => 'Deskripsi singkat wajib diisi.',
@@ -210,6 +215,7 @@ class ProgramController extends Controller
         try {
             $program->update([
                 'name' => $request->name,
+                'slug' => $request->slug,
                 'short_description' => $request->short_description,
                 'description' => $request->description,
                 'is_package' => $request->is_package,

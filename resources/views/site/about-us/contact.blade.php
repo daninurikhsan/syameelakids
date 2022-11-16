@@ -5,7 +5,7 @@
                 <div class="sc-contact wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1200ms">
                     <div class="wrap">
                         <h2 class="title clr-pri-1">Ingin tau lebih lanjut tentang Syameela Kids?</h2>
-                        <p class="sub clr-pri-1 f-mulish">Amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+                        <p class="sub clr-pri-1 f-mulish">Hubungi kami melalui nomor WhatsApp disamping atau klik tombol tersebut untuk menghubungi kami</p>
                     </div>
                     <div class="inner-sc-contact">
                         <div class="box-btn">

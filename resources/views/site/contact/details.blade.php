@@ -12,8 +12,7 @@
                         </svg>
                     </div>
                     <h2 class="title clr-pri-2 m-b26">Hubungi Kami untuk segera bergabung dengan kami</h2>
-                        <p class="f-mulish">Consectetur adipiscin elitsed eiusmod tempor incidide labore 
-                            magna aliqua suspendisse gravida commodo</p>
+                        <p class="f-mulish">Kami siap membantu anda dan buah hati anda kapanpun </p>
                 </div>
                 <div class="wrap-contact">
                     <div class="fx adress">

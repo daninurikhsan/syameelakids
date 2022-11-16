@@ -23,22 +23,24 @@
                 <div class="slider-fb">
                     <div class="themesflat-carousel clearfix" data-margin="66" data-item="2" data-item2="2" data-item3="1" data-item4="1" data-auto="false">
                         <div class="owl-carousel owl-theme none">
-                            <div data-dot="" class="item-fb wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1300ms">
-                                <div class="heading fx">
-                                    <div class="box-avt">
-                                        <img src="/site/assets/images/testimonial/1.jpg" style="width: 50px" alt="Image">
-                                    </div>
-                                    <ul>
-                                        <li><h4 class="name-author clr-pri-2">Bradley Y. Grimes</h4></li>
-                                        <li><p class="clr-pri-5 f-mulish">Orang tua dari Mahardika</p></li>
-                                    </ul>
-                                </div>
-                                <div class="wrap">
-                                    <p class="clr-pri-2">“ Dengan adanya Syameela Kids, anak saya bisa memahami pelajaran yang telah diajarkan di sekolah dengan baik.”</p>
-                                </div>
-                            </div>
 
-                            <div data-dot="" class="item-fb wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1300ms">
+                            @foreach($testimonials as $testimonial)
+                                <div data-dot="" class="item-fb wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1300ms">
+                                    <div class="heading fx">
+                                        <div class="box-avt">
+                                            <img src="{{ asset('storage/' . $testimonial->photo) }}" style="width: 50px" alt="Image">
+                                        </div>
+                                        <ul>
+                                            <li><h4 class="name-author clr-pri-2">{{ $testimonial->name }}</h4></li>
+                                            <li><p class="clr-pri-5 f-mulish">Orang tua dari {{ $testimonial->child_name }}</p></li>
+                                        </ul>
+                                    </div>
+                                    <div class="wrap">
+                                        <p class="clr-pri-2">“ {{ $testimonial->message }}”</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                            <!-- <div data-dot="" class="item-fb wow fadeIn animated" data-wow-delay="0.3ms" data-wow-duration="1300ms">
                                 <div class="heading fx">
                                     <div class="box-avt">
                                         <img src="/site/assets/images/testimonial/1.jpg" style="width: 50px" alt="Image">
@@ -66,7 +68,7 @@
                                 <div class="wrap">
                                     <p class="clr-pri-2">“ Dengan adanya Syameela Kids, anak saya bisa memahami pelajaran yang telah diajarkan di sekolah dengan baik.”</p>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
                     </div><!--/.themesflat-carousel-->

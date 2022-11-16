@@ -40,7 +40,7 @@
                                         </ul>
                                     </div>
                                     <div class="cls-time">
-                                        <p>Jadwal kelas menyesuaikan dengan waktu ananda.</p>
+                                        <p>Jadwal kelas dapat menyesuaikan dengan waktu anda.</p>
                                         <!-- <h4 class="title-widget"></h4> -->
                                     </div>
                             </div>

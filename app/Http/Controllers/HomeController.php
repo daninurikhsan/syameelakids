@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Program;
+use App\Models\Teacher;
 use App\Models\Testimonial;
 
 class HomeController extends Controller
@@ -16,9 +17,11 @@ class HomeController extends Controller
     public function index()
     {
         $programs = Program::all();
+        $testimonials = Testimonial::all();
 
         return view('site.index', [
-            'programs' => $programs
+            'programs' => $programs,
+            'testimonials' => $testimonials
         ]);
     }
 
@@ -26,28 +29,39 @@ class HomeController extends Controller
     {
         $title = 'Tentang Kami';
         $programs = Program::all();
+        $teachers = Teacher::all();
 
         return view('site.about-us',[
             'title' => $title,
             'programs' => $programs,
+            'teachers' => $teachers,
         ]);
     }
 
     public function contact()
     {
         $title = 'Kontak Kami';
+        $programs = Program::all();
 
         return view('site.contact',[
-            'title' => $title
+            'title' => $title,
+            'programs' => $programs,
         ]);
     }
 
     public function home()
     {
         $title = 'Dashboard';
+        
+        $countProgram = count(Program::all());
+        $countTeacher = count(Teacher::all());
+        $countTestimonial = count(Testimonial::all());
 
         return view('admin.home.index', [
-            'title' => $title
+            'title' => $title,
+            'countTeacher' => $countTeacher,
+            'countProgram' => $countProgram,
+            'countTestimonial' => $countTestimonial,
         ]);
     }
 }

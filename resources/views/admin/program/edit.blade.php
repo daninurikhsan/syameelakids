@@ -85,12 +85,34 @@
                     </div>
                 </div>
 
+                <!-- slug -->
+                <div class="row mb-3">
+                    <label for="slug" class="col-sm-2 col-form-label">Slug</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" id="slug" value="{{ old('slug', $program->slug) }}">
+                        @error('slug')
+                            <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+
                 <!-- Cover -->
                 <div class="row mb-3">
                     <label for="bg_cover" class="col-sm-2 col-form-label">Cover</label>
                     <div class="col-sm-10">
                         <input type="file" class="form-control @error('bg_cover') is-invalid @enderror" name="bg_cover" id="bg_cover" value="{{ old('bg_cover') }}">
                         @error('bg_cover')
+                            <span class="invalid-feedback">{{ $message }}</span>
+                        @enderror
+                    </div>
+                </div>
+
+                <!-- Logo -->
+                <div class="row mb-3">
+                    <label for="logo" class="col-sm-2 col-form-label">Logo</label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control @error('logo') is-invalid @enderror" name="logo" id="logo" value="{{ old('logo') }}">
+                        @error('logo')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
                     </div>

@@ -27,7 +27,7 @@
                     <div class="content">
                         <h4>Calistung</h4>
                         <p class="desc">
-                            Edipiscin elitsed eiusmod incididunt dolore magna suspendisse
+                            Membantu mersiapkan Baca Tulis Hitung kepada anak anda
                         </p>
                     </div>
                 </div> 
@@ -40,7 +40,7 @@
                     <div class="content">
                         <h4>Mengaji</h4>
                         <p class="desc">
-                            Edipiscin elitsed eiusmod incididunt dolore magna suspendisse
+                            Memberikan program mengaji untuk anak-anak dan dewasa
                         </p>
                     </div>
                 </div> 
@@ -53,7 +53,7 @@
                     <div class="content">
                         <h4>Mata Pelajaran SD</h4>
                         <p class="desc">
-                            Edipiscin elitsed eiusmod incididunt dolore magna suspendisse
+                            Membantu meningkatkan kemampuan akademis anak anda di tingkat dasar
                         </p>
                     </div>
                 </div> 
