@@ -33,7 +33,7 @@
                                     <div class="box-content">
                                         <div class="box-wrap">
                                             <h4 class="title">
-                                                <a href="classe-details.html">
+                                                <a href="/private/{{ $program->slug }}">
                                                     {{ $program->name }}
                                                 </a>
                                             </h4>
