@@ -29,7 +29,7 @@
                             <div class="box-content">
                                 <h4 class="title"><a href="#">{{ $program->name }}</a></h4>
                                 <p class="wrap f-mulish">{{ $program->short_description }}</p>
-                                <a href="/private/{{ $program->slug }}" class="fl-btn st-13">
+                                <a href="/privat/{{ $program->slug }}" class="fl-btn st-13">
                                     <span class="inner">Baca Lagi</span>
                                 </a>
                             </div>

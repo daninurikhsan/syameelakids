@@ -33,7 +33,7 @@
                                     <div class="box-content">
                                         <div class="box-wrap">
                                             <h4 class="title">
-                                                <a href="/private/{{ $program->slug }}">
+                                                <a href="/privat/{{ $program->slug }}">
                                                     {{ $program->name }}
                                                 </a>
                                             </h4>
