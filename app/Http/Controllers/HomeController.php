@@ -64,4 +64,16 @@ class HomeController extends Controller
             'countTestimonial' => $countTestimonial,
         ]);
     }
+
+    public function programDetail($slug){
+        $program = Program::where('slug', $slug)->first();
+        $programs = Program::all();
+        $title = $program->name;
+
+        return view('site.program.detail', [
+            'title' => $title,
+            'program' => $program,
+            'programs' => $programs,
+        ]);
+    }
 }

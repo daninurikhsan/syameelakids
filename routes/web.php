@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/tentang-kami', [App\Http\Controllers\HomeController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/kontak', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
+Route::get('/privat/{slug}', [App\Http\Controllers\HomeController::class, 'programDetail'])->name('program.detail');
 
 Auth::routes();
 
