@@ -25,6 +25,11 @@ Route::get('route-cache', function(){
     echo 'Run Success!';
 });
 
+Route::get('optimize-clear', function(){
+    \Artisan::call('optimize:clear');
+    echo 'Run Success!';
+});
+
 Route::get('key-generate', function(){
     \Artisan::call('key:generate');
     echo 'Run Success!';
