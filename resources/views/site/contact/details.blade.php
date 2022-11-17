@@ -22,7 +22,7 @@
                         </div>
                         <div class="content">
                             <p>Alamat</p>
-                            <h4>{{ env('BUSINESS_NAME') }}, {{ env('BUSINESS_CITY') }}</h4>
+                            <h4>{{ env('BUSINESS_ADDRESS') }}, {{ env('BUSINESS_CITY') }}</h4>
                         </div>
                     </div>
                     <div class="fx Email">
