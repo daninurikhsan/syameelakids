@@ -54,7 +54,7 @@ Route::get('db-migrate', function(){
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/access-storage-link', function(){
-        chmod("/repositories/syameelakids/storage", 775); 
+        chmod("/home/u1606457/repositories/syameelakids/storage", 775); 
         // $process = new Process('chmod -R 775 storage/');
         // $process->run();
     });
