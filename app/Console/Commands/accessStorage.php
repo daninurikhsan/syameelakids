@@ -27,7 +27,7 @@ class accessStorage extends Command
      */
     public function handle()
     {
-        exec("chmod -R 775 storage/", $output);
+        exec("", $output);
 
         $this->comment( implode( PHP_EOL, $output ) );
     }

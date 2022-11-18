@@ -31,7 +31,12 @@ Route::get('optimize-clear', function(){
 });
 
 Route::get('access-storage', function(){
-    \Artisan::call('access:storage');
+    \Artisan::call('chmod -R 775 storage/');
+    echo 'Run Success!';
+});
+
+Route::get('access-storage-2', function(){
+    \Artisan::queue('chmod -R 775 storage/');
     echo 'Run Success!';
 });
 
