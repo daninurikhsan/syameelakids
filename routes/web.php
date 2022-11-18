@@ -54,8 +54,9 @@ Route::get('db-migrate', function(){
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/access-storage-link', function(){
-        $process = new Process('chmod -R 775 storage/');
-        $process->run();
+        chmod("/storage", 775); 
+        // $process = new Process('chmod -R 775 storage/');
+        // $process->run();
     });
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
     Route::resource('/program', App\Http\Controllers\ProgramController::class);
