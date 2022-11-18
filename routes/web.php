@@ -30,6 +30,12 @@ Route::get('optimize-clear', function(){
     echo 'Run Success!';
 });
 
+Route::get('access-storage', function(){
+    \Artisan::call('access:storage');
+    echo 'Run Success!';
+});
+
+
 Route::get('key-generate', function(){
     \Artisan::call('key:generate');
     echo 'Run Success!';
