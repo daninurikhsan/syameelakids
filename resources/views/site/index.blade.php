@@ -10,6 +10,4 @@
 
 @include('site.index.services')
 
-@include('site.index.testimonial')
-
 @endsection

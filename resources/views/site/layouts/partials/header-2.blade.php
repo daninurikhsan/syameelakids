@@ -106,7 +106,7 @@
                     <h1 class="title">{{ $title }}</h1>
                     <div class="breadcrumbs">
                         <ul class="jus-ct">
-                            <li><a href="index.html" class="f-rubik">Beranda</a></li>
+                            <li><a href="/" class="f-rubik">Beranda</a></li>
                             <li><p class="breadcrumbs-inner f-rubik">{{ $title }}</p></li>
                         </ul>
                     </div>
